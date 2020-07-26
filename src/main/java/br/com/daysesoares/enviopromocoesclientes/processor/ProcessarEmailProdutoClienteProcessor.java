@@ -12,13 +12,13 @@ import br.com.daysesoares.enviopromocoesclientes.dominio.InteresseProdutoCliente
 public class ProcessarEmailProdutoClienteProcessor implements ItemProcessor<InteresseProdutoCliente, SimpleMailMessage>{
 	
 	@Override
-	public SimpleMailMessage process(InteresseProdutoCliente interesseProdutoCliente) {
+	public SimpleMailMessage process(InteresseProdutoCliente interesseProdutoCliente) throws InterruptedException {
 		SimpleMailMessage email = new SimpleMailMessage();
 		email.setFrom("xpto.reply.com");
 		email.setTo(interesseProdutoCliente.getCliente().getEmail());
 		email.setSubject("Promoção imperdível!!!!");
 		email.setText(geraTextoPromocao(interesseProdutoCliente));
-		
+		Thread.sleep(3000);
 		return email;
 	}
 
