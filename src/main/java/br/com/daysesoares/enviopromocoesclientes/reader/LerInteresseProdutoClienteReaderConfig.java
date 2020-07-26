@@ -28,7 +28,7 @@ public class LerInteresseProdutoClienteReaderConfig {
 				.sql("select *, c.nome as nm_cliente, p.nome as nm_produto "
 						+ "from interesse_produto_cliente ipc "
 						+ "join cliente c on (ipc.cliente = c.id) "
-						+ "join produto p on (p.produto = p.id) ")
+						+ "join produto p on (ipc.produto = p.id) ")
 				.rowMapper(rowMapper())
 				.build();
 		
